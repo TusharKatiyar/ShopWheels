@@ -1,0 +1,59 @@
+
+ <nav class="navbar navbar-expand-md navbar-light bg-light font-weight-bold">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+          <h2><i style="font-size: 30px;" class="fas fa-shopping-cart me-3 mt-2"></i>ShopWheels</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse h6">
+        <ul class="navbar-nav ms-auto me-auto ">
+          <li class="nav-item">
+            <a class="nav-link active text-uppercase bold" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item" *ngIf="loggedIn && isAdmin" >
+            <a class="nav-link text-uppercase bold" routerLink="allproducts">Products</a>
+          </li>
+          <li class="nav-item" *ngIf="loggedIn && isAdmin">
+            <a class="nav-link text-uppercase" routerLink="addproduct">Add Product</a>
+          </li>
+        </ul>
+
+        <form class="d-flex" role="search" [formGroup]="searchForm" (ngSubmit)="searching()" novalidate>
+          <input class="form-control me-2" type="search" formControlName="searchValue" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <div class="d-flex justify-content-between ms-auto me-auto">
+            <div class="dropdown">
+
+              <i class="fas fa-user fa-lg dropdown-toggle navbar-icon" data-bs-toggle="dropdown"
+                aria-expanded="false"></i>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a *ngIf="!loggedIn" class="dropdown-item" (click)="login()">Login</a></li>
+                <li><a *ngIf="!loggedIn" class="dropdown-item" (click)="register()">Register</a></li>
+                <li><a *ngIf="loggedIn" class="dropdown-item" (click)="logout()">Logout</a></li>
+
+                <li><a *ngIf="loggedIn" class="dropdown-item" routerLink="dashboard">My Account</a></li>
+              </ul>
+            </div>
+            <a *ngIf="loggedIn" routerLink="orders">
+              <i class="fas fa-podcast fa-lg navbar-icon" *ngIf="loggedIn"></i>
+            </a>
+            <a *ngIf="loggedIn" routerLink="cart">
+            
+              <i class="fas fa-shopping-cart fa-lg navbar-icon position-relative">
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </i>
+              
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </nav>

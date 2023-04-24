@@ -1,0 +1,38 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+    /* margin-top: 0;  */
+ }
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+ .navbar{
+    padding: 0 !important;
+ }
+ 
+ .navbar-brand h2{
+    font-family: Poppins,sans-serif !important;
+    font-weight: bold;
+    margin-left: 3rem;
+ }
+ .nav-item, .navbar-icon {
+     padding-left: 15px !important;
+     padding-right: 15px !important;
+ }
+ .navbar-icon:hover {
+    color: #a749ff ;
+ }
+ header .nav-link{
+     font-size: 1rem;
+ }
+ .nav-link:hover{
+     color: #a749ff !important;
+ }
+ .dropdown-item:hover{
+    color: #a749ff !important;
+
+ }
+
+.d-flex{
+    align-items: center !important;
+}
+

@@ -1,0 +1,26 @@
+<div class="container mt-5 mb-5">
+    <mat-grid-list cols="3" rowHeight="3:3" gutterSize="10">
+        <mat-grid-tile *ngFor="let product of categoryDetails">
+            <div class="row">
+                <div class="image-container">
+                    <img class="category-product-image" mat-card-image [src]='product.image' alt="product image">
+                </div>
+                <div class="row">
+                    <div class="col mt-3" style="text-align: center;">
+                        <h4><b>{{product.name}}</b></h4>
+                    </div>
+                    <div class="col mt-3" style="text-align: center;" >
+                        <h4><b>Price: Rs. {{product.price}}</b></h4>
+                    </div>
+                </div>
+                <div class="mt-2" style="text-align: center;">
+                    <p style="white-space: inherit; text-overflow: ellipsis;">{{product.description}}</p>
+                </div>
+                
+                <div class="mt-2" style="text-align: center;">
+                    <button mat-raised-button color="warn" (click)="viewDetails(product.id)">View Details</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

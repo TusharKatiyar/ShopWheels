@@ -1,0 +1,27 @@
+.mdc-data-table__header-cell{
+    text-align: center!important;
+}
+
+.mdc-data-table__cell{
+    text-align: center!important;
+}
+
+#sign{
+    margin: 7px;
+    padding: 5px; 
+    border: none;
+    background: none;  
+    cursor: pointer;
+}
+
+#button1{
+    background-color: rgb(9, 126, 165);
+    color: white;
+    font-size: 1rem;
+}
+
+#button2{
+    background-color: rgb(238, 27, 27);
+    color: white;
+    font-size: 1rem;
+}

@@ -1,0 +1,72 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-2">
+
+        </div>
+        <div class="col-8">
+            <form [formGroup]="addressForm">
+                <mat-accordion class="example-headers-align">
+                    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Personal data
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                        <mat-form-field appearance="outline" class="me-4">
+                            <mat-label style="color: black ;">{{userModel.name}}</mat-label>
+                            <input matInput [disabled]="loggedIn">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="me-4">
+                            <mat-label style="color: black;">{{userModel.email}}</mat-label>
+                            <input matInput type="email" [disabled]="loggedIn">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="form-group">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput type="number" class="form-control" formControlName="phone">
+                        </mat-form-field>
+
+                        <mat-action-row>
+                            <button mat-button color="primary" (click)="nextStep()">Next</button>
+                        </mat-action-row>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Addresses
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                            <mat-form-field appearance="outline" class="form-group me-4" style="background-color: white;">
+                                <mat-label>Street</mat-label>
+                                <input matInput class="form-control" formControlName="street">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" class="form-group me-4">
+                                <mat-label>City</mat-label>
+                                <input matInput class="form-control" formControlName="city">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" class="form-group">
+                                <mat-label>Pincode</mat-label>
+                                <input matInput type="number" class="form-control" formControlName="pincode">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" class="form-group">
+                                <mat-label>State</mat-label>
+                                <input matInput class="form-control" formControlName="state">
+                            </mat-form-field>
+
+                        <mat-action-row>
+                            <button mat-button color="warn" (click)="prevStep()">Previous</button>
+                            <button mat-button color="primary" (click)="save()">Save</button>
+                        </mat-action-row>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </form>
+        </div>
+    </div>
+</div>

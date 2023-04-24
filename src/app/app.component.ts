@@ -1,0 +1,17 @@
+import { Component } from '@angular/core';
+import { LoginService } from './services/login.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  constructor(private flg : LoginService) {
+    console.log(localStorage.getItem('token'));
+  }
+
+
+  title = 'ShopWheel';
+}

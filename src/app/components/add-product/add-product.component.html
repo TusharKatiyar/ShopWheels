@@ -1,0 +1,70 @@
+<h1 class="text-center mt-4">New Product</h1>
+
+<div class="container my-4">
+    <div class="card p-2">
+
+        <form [formGroup]="productForm" (ngSubmit)="addProduct()" novalidate>
+            <div class="row">
+                <div class="col-6">
+
+                    <mat-form-field appearance="outline" class="form-group w-100">
+                        <mat-label>Product Name</mat-label>
+                        <input matInput type="text" class="form-control" formControlName="name">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="form-group w-100">
+                        <mat-label>Price</mat-label>
+                        <input matInput type="number" class="form-control" formControlName="price">
+                    </mat-form-field>
+                      
+
+                    <mat-form-field appearance="outline" class="form-group w-100">
+                        <mat-label>Description</mat-label>
+                        <input matInput type="text" class="form-control" formControlName="description">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="ms-5 me-5">
+                        <mat-label>Select Category</mat-label>
+                        <mat-select formControlName="category">
+                          <mat-option *ngFor="let category of Category" [value]="category.value">{{category.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+
+                      <mat-form-field appearance="outline">
+                        <mat-label>Subcategory</mat-label>
+                        <mat-select formControlName="subcategory" multiple>
+                          <mat-option *ngFor="let sub of subcategoryList" [value]="sub.value">{{sub.viewValue}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+
+                    <div align="end">
+                        <button type="submit" mat-stroked-button color="primary">Add Product</button>
+                    </div>
+
+
+                </div>
+
+                <div class="col-6">
+                    <div>
+                        <input type="file" class="form-control" formControlName="image" (change)="fileChanged($event)" id="inputGroupFile"/>
+                    </div>
+                    <div class="mt-3">
+                        <div class="row">
+                            <mat-grid-list cols="3" rowHeight="4:4" gutterSize="10">
+                                <mat-grid-tile></mat-grid-tile>
+                                <mat-grid-tile>
+                                    <div>
+                                        <img [src]='productModel.image' alt="" width="400px" height="300px">
+                                    </div>
+                                </mat-grid-tile>
+                            </mat-grid-list>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
