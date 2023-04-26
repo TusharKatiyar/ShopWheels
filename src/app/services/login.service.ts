@@ -38,11 +38,27 @@ export class LoginService {
     return this.http.post(this.url+"updateProfile",data);
   }
 
-  updateAddress(userId : String, data : AddressModel){
+  resetPassword(data : any){
+    return this.http.post(this.url+"resetPassword",data);
+  }
+
+  getAddress(userId : String){
+    return this.http.get(this.url+userId+"/addresses");
+  }
+
+  selectAddress(orderId : String, addressId : String){
+    return this.http.get(this.url+"order/"+orderId+"/Address/"+addressId);
+  }
+
+  deleteAddress(userId : String, addressId : String){
+    return this.http.delete(this.url+"address/"+userId+"/remove/"+addressId);
+  }
+
+  addAddress(userId : String, data : AddressModel){
     return this.http.post(this.url+userId+"/addAddress",data);
   }
 
-  resetPassword(data : any){
-    return this.http.post(this.url+"resetPassword",data);
+  updateAddress(addressId : String, data : AddressModel){
+    return this.http.post(this.url+"updateAddress/"+addressId,data);
   }
 }

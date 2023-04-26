@@ -23,9 +23,9 @@
                             <input matInput type="email" [disabled]="loggedIn">
                         </mat-form-field>
 
-                        <mat-form-field appearance="outline" class="form-group">
-                            <mat-label>Phone Number</mat-label>
-                            <input matInput type="number" class="form-control" formControlName="phone">
+                        <mat-form-field appearance="outline" class="me-4">
+                            <mat-label style="color: black;">{{userModel.phone}}</mat-label>
+                            <input matInput [disabled]="loggedIn">
                         </mat-form-field>
 
                         <mat-action-row>
@@ -40,7 +40,44 @@
                             </mat-panel-title>
                         </mat-expansion-panel-header>
 
-                            <mat-form-field appearance="outline" class="form-group me-4" style="background-color: white;">
+                        <mat-grid-list cols="1" rowHeight="6:2" gutterSize="30" class="mb-5">
+                            <mat-grid-tile *ngFor="let address of addressDetails">
+                                <div class="row">
+
+                                    <div class=" row mt-4 ms-3">
+                                        <div class="col mt-4 ms-3">
+                                            <h4>Address {{address.addressId}}</h4>
+                                        </div>
+                                        <div class="col" style="text-align: right;">
+                                            <button mat-icon-button color="primary" (click)="editAddress(address.addressId)">
+                                                <mat-icon> edit </mat-icon>
+                                            </button>
+                                            <button mat-icon-button color="primary" (click)="deleteAddress(address.addressId)">
+                                                <mat-icon> delete </mat-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-2 ms-4">
+                                        <h4><b>Street : </b>{{address.street}}</h4>
+                                    </div>
+                                    <div class="mt-2 ms-4">
+                                        <h4><b>City : </b>{{address.city}}</h4>
+                                    </div>
+                                    <div class="mt-2 ms-4" >
+                                        <h4><b>State : </b>{{address.state}}</h4>
+                                    </div>
+                                    <div class="mt-2 ms-4 mb-5" >
+                                        <h4><b>Pincode : </b>{{address.pincode}}</h4>
+                                    </div>
+                                    
+                    
+                                </div>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+
+                        
+                            <!-- <mat-form-field appearance="outline" class="form-group me-4" style="background-color: white;">
                                 <mat-label>Street</mat-label>
                                 <input matInput class="form-control" formControlName="street">
                             </mat-form-field>
@@ -58,15 +95,22 @@
                             <mat-form-field appearance="outline" class="form-group">
                                 <mat-label>State</mat-label>
                                 <input matInput class="form-control" formControlName="state">
-                            </mat-form-field>
+                            </mat-form-field> -->
 
                         <mat-action-row>
                             <button mat-button color="warn" (click)="prevStep()">Previous</button>
-                            <button mat-button color="primary" (click)="save()">Save</button>
+                            <button mat-button color="primary" (click)="addAddress()">Add Address</button>
                         </mat-action-row>
                     </mat-expansion-panel>
                 </mat-accordion>
             </form>
         </div>
     </div>
+
+<!-- <div class="row">
+    <div class="container">
+        
+    </div>
 </div>
+</div> -->
+

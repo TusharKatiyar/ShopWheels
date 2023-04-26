@@ -40,6 +40,7 @@ export interface subcategory {
 }
 
 export interface AddressModel{
+  addressId  : number;
   street: string;
   city: string;
   state: string;

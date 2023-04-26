@@ -39,6 +39,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { SearchComponent } from './components/search/search.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { SelectAddressComponent } from './components/select-address/select-address.component';
+import { AddAddressComponent } from './components/add-address/add-address.component';
+import { EditAddressComponent } from './components/edit-address/edit-address.component';
 
 
 
@@ -64,7 +67,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     DashboardComponent,
     OrdersComponent,
     ForgotPasswordComponent,
-    SearchComponent
+    SearchComponent,
+    SelectAddressComponent,
+    AddAddressComponent,
+    EditAddressComponent
   ],
 
   imports: [

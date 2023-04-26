@@ -14,6 +14,9 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { SearchComponent } from './components/search/search.component';
 import { RoleModel } from './services/utils.service';
+import { AddAddressComponent } from './components/add-address/add-address.component';
+import { SelectAddressComponent } from './components/select-address/select-address.component';
+import { EditAddressComponent } from './components/edit-address/edit-address.component';
 // import { ProductResolveService } from './resolvers/product-resolve.service';
 
 
@@ -32,6 +35,9 @@ const routes: Routes = [
   { path: 'orders', component: OrdersComponent},
   { path: 'forgotPassword', component: ForgotPasswordComponent},
   { path: 'search/:search', component: SearchComponent},
+  { path: 'addAddress', component: AddAddressComponent},
+  { path: 'selectAddress/:orderId', component: SelectAddressComponent},
+  { path: 'editAddress/:addressId', component: EditAddressComponent},
   { path: '**', component: NotfoundComponent}
  
 ];

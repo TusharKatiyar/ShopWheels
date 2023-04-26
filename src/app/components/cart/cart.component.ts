@@ -20,7 +20,7 @@ export class CartComponent {
   buyList: any[]=[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit() {
     if (localStorage.getItem('token') !== null) {
@@ -29,6 +29,7 @@ export class CartComponent {
         (data: any) => {
           console.log(data);
           // this.cartList = data;
+            this.tableList = [];
           for(let i in data){
             this.tableList[i]={
               checked: false,
@@ -76,7 +77,8 @@ export class CartComponent {
     this.cartService.remove(this.userId, productId).subscribe(
       (data: any) => {
         console.log(data);
-        window.location.reload();
+        this.ngOnInit();
+        // window.location.reload();
         // this.router.routeReuseStrategy.shouldReuseRoute = function(){
         //   return false;
         // }
@@ -101,10 +103,12 @@ export class CartComponent {
     this.cartService.addOrder(this.userId,this.buyList).subscribe(
       (data: any) => {
         console.log(data); 
+        console.log(data[0].id);
         for(let i in this.buyList){
           console.log(this.buyList[i].id);
           this.removeFromCart(this.userId,this.buyList[i].product.id);
         }
+        this.router.navigate(["/selectAddress/"+data[0].id]);
         // window.location.reload();
      }
     );

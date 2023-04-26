@@ -3,5 +3,14 @@
 }
 
 .image-container{
+    text-align: center;
+    align-items: center;
     height: 500px;
+}
+
+img{
+    text-align: center;
+    align-items: center;
+    height: 490px;
+    width: 400px;
 }
